@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="content">
-    <el-col :span="3">
+  <div id="app">
+    <el-col :span="3" class="content">
       <el-menu 
         class="menu"
         :default-active="activeIndex"
@@ -10,26 +10,18 @@
         @open="handleOpen"
         @close="handleClose"
       >
-      <!-- <div>
-        <div>
-          <el-menu-item index="1">4444</el-menu-item>
-        </div>
-      </div> -->
         <Menu :data="menuList"></Menu>
       </el-menu>
     </el-col>
-    <!-- <multi-form/> -->
   </div>
 </template>
 
 <script>
-// import MultiForm from './components/multiForm.vue';
 import Menu from './components/menu.vue';
 import { menuList } from './config'
 
 export default {
   components: {
-    // MultiForm,
     Menu
   },
   data() {
@@ -57,7 +49,7 @@ export default {
 html,body,#app {
   height: 100%;
 }
-.menu {
+.menu,.content {
   height:100%;
 }
 </style>
