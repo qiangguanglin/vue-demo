@@ -3,15 +3,19 @@
     <el-col :span="3" class="content">
       <el-menu 
         class="menu"
-        :default-active="activeIndex"
+        default-active="/home"
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b"
+        :router="true"
         @open="handleOpen"
         @close="handleClose"
       >
         <Menu :data="menuList"></Menu>
       </el-menu>
+    </el-col>
+    <el-col :span="21">
+      <router-view></router-view>
     </el-col>
   </div>
 </template>
@@ -21,14 +25,17 @@ import Menu from './components/menu.vue';
 import { menuList } from './config'
 
 export default {
+  name: 'app',
   components: {
     Menu
   },
   data() {
     return{
       menuList,
-      activeIndex: 'secondaryPackageCom'
+      activeIndex: ''
     }
+  },
+  created() {
   },
   methods: {
     handleOpen() {
@@ -36,7 +43,7 @@ export default {
     },
     handleClose() {
 
-    }
+    },
   }
 }
 </script>
@@ -45,6 +52,7 @@ export default {
 *{
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
 html,body,#app {
   height: 100%;

@@ -1,30 +1,30 @@
 export const menuList = [
     {
-        value: 'form',
+        value: '/home',
+        label: '首页'
+    },
+    {
+        value: '/form',
         label: '表单系列',
         children: [
             {
-                value: 'multiFormCheck',
+                value: '/form/multiForm',
                 label: '多表单校验',
-                children: [
-                    {
-                        value: 'form1',
-                        label: '表单1'
-                    },
-                    {
-                        value: 'form2',
-                        label: '表单2'
-                    }
-                ]
             },
             {
-                value: 'loopForm',
+                value: '/form/loopForm',
                 label: '循环表单'
             }
         ]
     },
     {
-        value: 'secondaryPackageCom',
-        label: '封装组件'
+        value: '/components',
+        label: '封装组件',
+        children: [
+            {
+                value: '/components/vModel',
+                label: '简单的双向绑定',
+            },
+        ]
     }
 ]

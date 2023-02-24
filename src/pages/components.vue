@@ -1,14 +1,12 @@
 <template>
-  <div>
-    2222
-  </div>
+    <router-view></router-view>
 </template>
 
 <script>
+
 export default {
-  name: 'MultiForm'
 }
 </script>
-
 <style scoped>
+
 </style>

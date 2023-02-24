@@ -5,7 +5,7 @@
                 <span slot="title">{{item.label}}</span>
                 <my-menu :data="item.children"></my-menu>
             </el-submenu>
-            <el-menu-item v-else :index="item.value">
+            <el-menu-item v-else :index="item.value" :route="item.value">
                 {{item.label}}
             </el-menu-item>
         </div>
@@ -26,15 +26,6 @@ export default {
 
         }
     },
-    watch: {
-        data: {
-            handler(v) {
-                console.log(v)
-
-            }
-        },
-        immediate:true
-    }
 }
 </script>
 
