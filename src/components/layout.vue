@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="layout_content">
         <slot></slot>
     </div>
 </template>
@@ -11,7 +11,8 @@ export default {
 </script>
 
 <style scoped>
-.content {
+.layout_content {
+    font-size: 14px;
     padding: 10px;
     font-weight: 400;
     color: #2c3e50;

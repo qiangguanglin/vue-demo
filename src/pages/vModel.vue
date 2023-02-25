@@ -1,20 +1,25 @@
 <template>
-    <div>
+    <layout>
         {{inputValue}}
-        <edit-input class="input_class" v-model="inputValue"></edit-input>
-    </div>
+        <computed-input class="input_class" v-model="inputValue"></computed-input>
+        {{modelValue}}
+        <model-input class="input_class" v-model="modelValue"></model-input>
+    </layout>
 </template>
 
 <script>
-import EditInput from '../components/edit-input.vue'
+import ModelInput from '../components/model-input.vue'
+import ComputedInput from '../components/conputed-input.vue'
 
 export default {
     components: {
-        EditInput,
+        ModelInput,
+        ComputedInput
     },
     data() {
         return {
-            inputValue: '1111'
+            inputValue: '1111',
+            modelValue: '22222'
         }
     },
     methods: {
