@@ -26,5 +26,9 @@ export const menuList = [
                 label: '简单的双向绑定',
             },
         ]
+    },
+    {
+        value: '/skill',
+        label: '奇技淫巧',
     }
 ]

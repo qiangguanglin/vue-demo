@@ -12,6 +12,7 @@ const routes = [
             { path: 'vModel', component: () => import('./pages/vModel.vue') }
         ]
     },
+    { path: '/skill', component: () => import('./pages/skill.vue'),},
 ]
 
 export default routes;

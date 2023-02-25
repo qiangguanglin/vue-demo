@@ -4,9 +4,6 @@
       <el-menu 
         class="menu"
         default-active="/home"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
         :router="true"
         @open="handleOpen"
         @close="handleClose"
@@ -15,7 +12,9 @@
       </el-menu>
     </el-col>
     <el-col :span="21">
-      <router-view></router-view>
+      <layout>
+        <router-view></router-view>
+      </layout>
     </el-col>
   </div>
 </template>
@@ -52,12 +51,12 @@ export default {
 *{
   margin: 0;
   padding: 0;
-  font-size: 14px;
 }
 html,body,#app {
   height: 100%;
 }
 .menu,.content {
   height:100%;
+  overflow-y: scroll;
 }
 </style>

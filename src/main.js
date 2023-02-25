@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
-import routes from './router';
+import Layout from './components/layout.vue'
+import TextContent from './components/text-content.vue'
+import 'element-ui/lib/theme-chalk/index.css'
+import routes from './router'
 import VueRouter from 'vue-router'
 
 const router = new VueRouter({
@@ -10,6 +12,8 @@ const router = new VueRouter({
   routes, // `routes: routes` 的缩写
 })
 Vue.use(ElementUI)
+Vue.component('layout', Layout)
+Vue.component('textContent', TextContent)
 Vue.use(VueRouter)
 // Vue.use(router)
 Vue.config.productionTip = false
