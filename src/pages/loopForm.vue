@@ -1,7 +1,7 @@
 <template>
     <div class="content_style">
         <div v-for="form in ruleForm" :key="form.key" class="all_content">
-            <el-button class="delete_class_form" type="text" @click="deleteForm(ruleForm, form.key)">删除</el-button>
+            <el-button :disabled="ruleForm.length === 1" class="delete_class_form" type="text" @click="deleteForm(ruleForm, form.key)">删除</el-button>
             <div class="form1_content">
                 <el-form
                     ref="ruleForm1"
@@ -28,7 +28,7 @@
             <div>
                 <div v-for="(item, j) in form.ruleForm2" :key="item.key" class="form2_content">
                     <el-form class="form" :ref="`ruleForm2-${item.key}`" :model="item" label-width="100px">
-                        <el-button class="delete_class_form2" type="text" @click="deleteForm(form.ruleForm2, item.key)">删除</el-button>
+                        <el-button :disabled="form.ruleForm2.length === 1" class="delete_class_form2" type="text" @click="deleteForm(form.ruleForm2, item.key)">删除</el-button>
                         <el-form-item :label="`活动名称${j+1}`" prop="name" :rules="rules.name">
                             <el-input v-model="item.name"></el-input>
                         </el-form-item>
@@ -131,7 +131,6 @@ export default {
                 });
             }).catch(() => {});
         }
-
     }
     
 }
@@ -157,7 +156,7 @@ export default {
 }
 .delete_class_form2 {
     position: absolute;
-    right: 30px;
+    right: 40px;
     margin-bottom: 10px;
     z-index: 10;
 }
