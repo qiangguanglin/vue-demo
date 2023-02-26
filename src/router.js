@@ -3,13 +3,13 @@ const routes = [
     { path: '/home', component: () => import('./pages/home.vue') },
     { path: '/form', component: () => import('./pages/form.vue'),
         children: [
-            { path: 'multiForm', component: () => import('./pages/multiForm.vue') },
             { path: 'loopForm', component: () => import('./pages/loopForm.vue') }
         ]
     },
     { path: '/components', component: () => import('./pages/components.vue'),
         children: [
-            { path: 'vModel', component: () => import('./pages/vModel.vue') }
+            { path: 'vModel', component: () => import('./pages/vModel.vue') },
+            { path: 'inherit', component: () => import('./pages/inherit.vue') }
         ]
     },
     { path: '/skill', component: () => import('./pages/skill.vue'),},

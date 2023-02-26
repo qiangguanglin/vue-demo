@@ -4,7 +4,7 @@
             <el-button :disabled="ruleForm.length === 1" class="delete_class_form" type="text" @click="deleteForm(ruleForm, form.key)">删除</el-button>
             <div class="form1_content">
                 <el-form
-                    ref="ruleForm1"
+                    :ref="`ruleForm1-${form.key}`"
                     class="form"
                     :model="form.ruleForm1"
                     label-width="100px"
@@ -119,17 +119,31 @@ export default {
         reset() {
             this.ruleForm = [this.getDefaultForm(new Date().getTime())];
         },
+        checkForm1() {
+            const checkPromise = this.ruleForm.map(v => this.$refs?.[`ruleForm1-${v.key}`]?.[0]?.validate())
+            return checkPromise
+        },
+        checkForm2() {
+            const checkPromise = this.ruleForm?.reduce((p, c) => [...p, ...c.ruleForm2], [])?.map(v => this.$refs?.[`ruleForm2-${v.key}`]?.[0]?.validate())
+            return checkPromise
+        },
         confirm() {
-            this.$confirm('确定提交?', '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: 'warning'
-            }).then(() => {
-                this.$message({
-                    type: 'success',
-                    message: '提交成功'
-                });
-            }).catch(() => {});
+            const checkPromise = [...this.checkForm1(), ...this.checkForm2()]
+            Promise.all(checkPromise).then((resArr) => {
+                if(resArr.every(v => v)) {
+                    this.$confirm('确定提交?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        this.$message({
+                            type: 'success',
+                            message: '提交成功'
+                        });
+                    }).catch(() => {});
+                }
+            }).catch(() => {})
+            
         }
     }
     

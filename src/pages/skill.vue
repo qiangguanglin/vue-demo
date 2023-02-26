@@ -1,5 +1,5 @@
 <template>
-    <layout class="content">
+    <layout class="skill_content">
         <div class="right_menu">
             <el-menu 
                 class="menu"
@@ -100,5 +100,8 @@ h2 {
     margin: 20px 0;
     padding: 20px;
     background-color: rgba(27,31,35,.05);
+}
+.skill_content {
+    width: 95%;
 }
 </style>

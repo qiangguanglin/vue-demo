@@ -10,12 +10,8 @@ export const menuList = [
         icon: 'el-icon-s-grid',
         children: [
             {
-                value: '/form/multiForm',
-                label: '多表单校验',
-            },
-            {
                 value: '/form/loopForm',
-                label: '循环表单'
+                label: '循环表单及校验'
             }
         ]
     },
@@ -28,6 +24,10 @@ export const menuList = [
                 value: '/components/vModel',
                 label: '简单的双向绑定',
             },
+            {
+                value: '/components/inherit',
+                label: '二次封装组件功能透传'
+            }
         ]
     },
     {
