@@ -1,11 +1,13 @@
 export const menuList = [
     {
         value: '/home',
-        label: '首页'
+        label: '首页',
+        icon: 'el-icon-s-home'
     },
     {
         value: '/form',
         label: '表单系列',
+        icon: 'el-icon-s-grid',
         children: [
             {
                 value: '/form/multiForm',
@@ -20,6 +22,7 @@ export const menuList = [
     {
         value: '/components',
         label: '封装组件',
+        icon: 'el-icon-s-data',
         children: [
             {
                 value: '/components/vModel',
@@ -30,5 +33,6 @@ export const menuList = [
     {
         value: '/skill',
         label: '奇技淫巧',
+        icon: 'el-icon-s-opportunity'
     }
 ]

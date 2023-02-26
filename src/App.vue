@@ -2,7 +2,7 @@
   <div id="app">
     <el-menu 
       class="menu"
-      default-active="/home"
+      :default-active="$route.path"
       :router="true"
       @open="handleOpen"
       @close="handleClose"
@@ -30,8 +30,7 @@ export default {
       activeIndex: ''
     }
   },
-  created() {
-  },
+  created() {},
   methods: {
     handleOpen() {
 
