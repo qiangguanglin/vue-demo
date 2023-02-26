@@ -1,21 +1,17 @@
 <template>
   <div id="app">
-    <el-col :span="3" class="content">
-      <el-menu 
-        class="menu"
-        default-active="/home"
-        :router="true"
-        @open="handleOpen"
-        @close="handleClose"
-      >
-        <Menu :data="menuList"></Menu>
-      </el-menu>
-    </el-col>
-    <el-col :span="21">
-      <layout>
-        <router-view></router-view>
-      </layout>
-    </el-col>
+    <el-menu 
+      class="menu"
+      default-active="/home"
+      :router="true"
+      @open="handleOpen"
+      @close="handleClose"
+    >
+      <Menu :data="menuList"></Menu>
+    </el-menu>
+    <layout>
+      <router-view></router-view>
+    </layout>
   </div>
 </template>
 
@@ -53,9 +49,12 @@ export default {
   padding: 0;
 }
 html,body,#app {
+  width: 100%;
   height: 100%;
+  display: flex;
 }
 .menu,.content {
+  width: 200px;
   height:100%;
   overflow-y: scroll;
 }
