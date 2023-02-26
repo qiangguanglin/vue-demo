@@ -12,9 +12,15 @@ export default {
 
 <style scoped>
 .text_content_origin {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
     font-size: 14px;
-    text-indent:  30px;
     line-height:  1.5;
     text-align: justify;
+    margin: 20px 0;
+    overflow: auto;
 }
 </style>

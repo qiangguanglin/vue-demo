@@ -6,6 +6,7 @@ import TextContent from './components/text-content.vue'
 import 'element-ui/lib/theme-chalk/index.css'
 import routes from './router'
 import VueRouter from 'vue-router'
+import './utils/style.scss'
 
 const router = new VueRouter({
   mode: 'history',

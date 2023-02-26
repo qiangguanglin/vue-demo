@@ -12,10 +12,15 @@ export default {
 
 <style scoped>
 .layout_content {
-    font-size: 14px;
     width: 100%;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(238, 241, 248);
+    font-size: 14px;
     font-weight: 400;
+    padding: 20px;
     color: #2c3e50;
+    overflow: hidden;
+    padding: 20px;
 }
 </style>

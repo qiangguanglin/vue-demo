@@ -1,10 +1,10 @@
 <template>
-    <layout>
+    <div>
         {{inputValue}}
         <computed-input class="input_class" v-model="inputValue"></computed-input>
         {{modelValue}}
         <model-input class="input_class" v-model="modelValue"></model-input>
-    </layout>
+    </div>
 </template>
 
 <script>

@@ -7,7 +7,7 @@
                     :ref="`ruleForm1-${form.key}`"
                     class="form"
                     :model="form.ruleForm1"
-                    label-width="100px"
+                    label-width="120px"
                 >
                     <el-form-item label="清单名称" prop="name" :rules="rules.name">
                         <el-input v-model="form.ruleForm1.name"></el-input>
@@ -27,7 +27,7 @@
             </div>
             <div>
                 <div v-for="(item, j) in form.ruleForm2" :key="item.key" class="form2_content">
-                    <el-form class="form" :ref="`ruleForm2-${item.key}`" :model="item" label-width="100px">
+                    <el-form class="form" :ref="`ruleForm2-${item.key}`" :model="item" label-width="120px">
                         <el-button :disabled="form.ruleForm2.length === 1" class="delete_class_form2" type="text" @click="deleteForm(form.ruleForm2, item.key)">删除</el-button>
                         <el-form-item :label="`活动名称${j+1}`" prop="name" :rules="rules.name">
                             <el-input v-model="item.name"></el-input>
@@ -164,13 +164,14 @@ export default {
     border: 1px solid #ddd;
     border-radius: 4px;
     text-align: left;
+    position: relative;
 }
 .all_content {
     text-align: end;
 }
 .delete_class_form2 {
     position: absolute;
-    right: 40px;
+    right: 10px;
     margin-bottom: 10px;
     z-index: 10;
 }

@@ -33,6 +33,7 @@ export const menuList = [
     {
         value: '/skill',
         label: '奇技淫巧',
-        icon: 'el-icon-s-opportunity'
+        icon: 'el-icon-s-opportunity',
+        showRightMenu: true
     }
 ]
