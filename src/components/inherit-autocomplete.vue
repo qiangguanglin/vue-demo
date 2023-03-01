@@ -9,8 +9,8 @@
                 <slot v-if="!ignore_slot.includes(name)" :name="name"></slot>
             </template>
             <template v-for="(index, name) in $scopedSlots" v-slot:[name]="data">
-                        <slot :name="name" v-bind="data"></slot>
-                    </template>
+                <slot :name="name" v-bind="data"></slot>
+            </template>
         </el-autocomplete>
         <div class="append">
             <slot name="append"></slot>

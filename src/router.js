@@ -9,7 +9,8 @@ const routes = [
     { path: '/components', component: () => import('./pages/components.vue'),
         children: [
             { path: 'vModel', component: () => import('./pages/vModel.vue') },
-            { path: 'inherit', component: () => import('./pages/inherit.vue') }
+            { path: 'inherit', component: () => import('./pages/inherit.vue') },
+            { path: 'table', component: () => import('./pages/newTable.vue') }
         ]
     },
     { path: '/skill', component: () => import('./pages/skill.vue'),},

@@ -27,6 +27,10 @@ export const menuList = [
             {
                 value: '/components/inherit',
                 label: '二次封装组件功能透传'
+            },
+            {
+                value: '/components/table',
+                label: 'table组件',
             }
         ]
     },
