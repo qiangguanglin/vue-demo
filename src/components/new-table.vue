@@ -8,7 +8,7 @@
 			v-bind="$attrs"
 			v-on="$listeners"
 		>
-			<template v-if="$slots.append" slot="append">
+			<template slot="append">
 				<slot name="append"></slot>
 			</template>
 			<template v-for="item in columns">
