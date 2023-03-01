@@ -83,9 +83,6 @@ export default {
             this.eventText='触发了失焦事件'
         }
     },
-    mounted() {
-        console.log('组件==>>', this.$refs?.autocomplete)
-    }
 }
 </script>
 

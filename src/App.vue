@@ -70,7 +70,6 @@ export default {
   watch: {
     '$route.path': {
       handler(v) {
-        console.log('---', this.showRightMenuList, v)
         if(this.showRightMenuList.includes(v)) {
           this.show = true
           return
