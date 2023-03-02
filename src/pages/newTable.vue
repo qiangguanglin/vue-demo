@@ -11,6 +11,7 @@
 			style="width: 100%"
 			:default-sort = "{prop: 'date', order: 'descending'}"
 			border
+			stripe
 			:pagination="{
 					pageSizes: [2,5],
 			}"

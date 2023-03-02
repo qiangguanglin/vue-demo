@@ -2,6 +2,7 @@
 	<div>
 		<el-table
 			ref="table"
+      v-loading="loading"
 			:data="tempData"
 			:header-cell-style="headerCellStyle"
 			:cell-style="cellStyle"
@@ -95,6 +96,7 @@ export default {
 			currentPage: 1,
 			pageSize: 10,
 			tempData: [],
+      loading: false
 		}
 	},
 	computed: {
@@ -145,7 +147,11 @@ export default {
 		},
 		getTableData() {
 			const { offset, limit } = this.paging || {};
-			this.tempData = this.data.filter((v, i) => i >= offset && i < (offset + limit))
+      this.loading = true
+      setTimeout(() => {
+        this.tempData = this.data.filter((v, i) => i >= offset && i < (offset + limit))
+        this.loading = false
+      }, 1000)
 		},
 	}
 

@@ -2,7 +2,7 @@
   <div id="app">
     <div class="top_class">
       <div class="top_title">
-        <img src="./assets/home.png" style="width:50px;height:50px"/>
+        <img src="./assets/home.png" style="width:50px;height:50px;cursor:pointer;" @click="goHome"/>
         <i class="home_title">LASSETS</i>
         <div class="my_content">
           <el-image 
@@ -19,8 +19,6 @@
         class="menu"
         :default-active="$route.path"
         :router="true"
-        @open="handleOpen"
-        @close="handleClose"
       >
         <Menu :data="menuList"></Menu>
       </el-menu>
@@ -79,16 +77,12 @@ export default {
       immediate: true
     }
   },
-  created() {},
   methods: {
-    handleOpen() {
-
-    },
-    handleClose() {
-
-    },
     selected(index) {
       this.$refs?.router?.selected(index)
+    },
+    goHome() {
+      this.$router.push('/home')
     }
   }
 }
