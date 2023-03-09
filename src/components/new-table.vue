@@ -90,6 +90,7 @@ export default {
 				}
 			}
 		},
+		
 	},
 	data() {
 		return {
@@ -129,7 +130,8 @@ export default {
 		}
 	},
 	mounted() {
-		const tempStore = this.$refs?.table?.store || {}
+		const tempStore = this.$refs?.table || {}
+		console.log('tempStore: ', tempStore, this.$refs?.table);
 		for(const key in tempStore) {
 			if(typeof tempStore[key] === 'function') {
 				this[key] = tempStore[key]

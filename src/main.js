@@ -16,9 +16,7 @@ Vue.use(ElementUI)
 Vue.component('layout', Layout)
 Vue.component('textContent', TextContent)
 Vue.use(VueRouter)
-// Vue.use(router)
 Vue.config.productionTip = false
-
 
 new Vue({
   router,
