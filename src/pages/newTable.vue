@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<h3 class="title">二次封装表格</h3>
 		<div class="button_group">
 			<el-button type="primary" size="small" @click="clearSelect">清除选择</el-button>
 			<el-button type="primary" size="small" @click="clearSort">清除排序</el-button>
@@ -29,6 +30,7 @@
 				<span style="padding:20px">我是append插槽</span>
 			</template>
 		</new-table>
+		<h3 class="title">进度条表格</h3>
 		<new-table-process
 			ref="tableProcess"
 			:columns="columnsProcess"
@@ -103,5 +105,8 @@ export default {
 .button_group {
     padding: 10px 0;
     float: right
+}
+.title{
+	padding: 10px 0
 }
 </style>
