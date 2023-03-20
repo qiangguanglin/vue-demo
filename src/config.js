@@ -31,6 +31,10 @@ export const menuList = [
             {
                 value: '/components/table',
                 label: 'table组件',
+            },
+            {
+                value: '/components/hoc',
+                label: '高阶组件'
             }
         ]
     },

@@ -130,8 +130,9 @@ export default {
 		}
 	},
 	mounted() {
+		console.log('---', this.$slots)
 		const tempStore = this.$refs?.table || {}
-		console.log('tempStore: ', tempStore, this.$refs?.table);
+		console.log('tempStore: ', this.$slots, this.$scopedSlots);
 		for(const key in tempStore) {
 			if(typeof tempStore[key] === 'function') {
 				this[key] = tempStore[key]

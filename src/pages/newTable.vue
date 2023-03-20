@@ -18,10 +18,16 @@
 			}"
 		>
 			<template slot="header-name" slot-scope="scope">
-				<el-input v-model="search" size="mini" :placeholder="`输入关键字搜索<${scope.column.label}>`"></el-input>
+				<el-input v-model="search" size="mini" :placeholder="`输入关键字搜索<${scope.column.label}>`">
+				</el-input>
 			</template>
 			<template slot="operate">
-				<el-button size="mini" type="primary">操作</el-button>
+				<el-input>
+					<template>
+						<i slot="prefix">1111</i>
+					</template>
+				</el-input>
+				<!-- <el-button size="mini" type="primary">操作</el-button> -->
 			</template>
 			<template slot="date" slot-scope="scope">
 				我是日期：{{scope.row.date}}
@@ -57,7 +63,7 @@
 import NewTable from '../components/new-table.vue'
 import NewTableProcess from '../components/new-table-process.vue'
 import { columns, tableData, tableDataProcess, columnsProcess } from './config'
-
+console.log('NewTable: ', NewTable);
 export default {
     components: {
         NewTable,
