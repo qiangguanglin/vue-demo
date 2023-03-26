@@ -57,4 +57,7 @@ export default {
 		margin-left:auto
 	}
 }
+.my-table ::v-deep .is-group tr:nth-child(odd) {
+    display: none;
+}
 </style>

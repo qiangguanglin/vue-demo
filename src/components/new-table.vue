@@ -1,8 +1,9 @@
 <template>
 	<div>
 		<el-table
+			class="my-table"
+			v-loading="loading"
 			ref="table"
-      v-loading="loading"
 			:data="tempData"
 			:header-cell-style="headerCellStyle"
 			:cell-style="cellStyle"
@@ -12,35 +13,14 @@
 			<template slot="append">
 				<slot name="append"></slot>
 			</template>
-			<template v-for="item in columns">
-				<el-table-column
-					v-if="['selection', 'index'].includes(item.prop)"
-					:key="`${item.prop}-if`"
-					v-bind="item"
-				>
-					<template v-slot:header="scope">
-						<slot :name="`header-${item.prop}`" v-bind="scope"></slot>
-					</template>
-				</el-table-column>
-				<el-table-column
-					v-else
-					:key="item.prop"
-					v-bind="item"
-				>
-					<template v-slot:header="scope">
-						<span v-if="$scopedSlots[`header-${item.prop}`]">
-							<slot :name="`header-${item.prop}`" v-bind="scope"></slot>
-						</span>
-						<span v-else>{{scope.column.label}}</span>
-					</template>
-					<template slot-scope="scope">
-						<span v-if="$scopedSlots[item.prop]">
-							<slot :name="item.prop" v-bind="scope"></slot>
-						</span>
-						<span v-else>{{scope.row[item.prop]}}</span>
-					</template>
-				</el-table-column>
-			</template>
+			<component :is="newTableColumn" :columns="columns">
+				<template v-for="(index, name) in $slots" :slot="name">
+					<slot :name="name"></slot>
+				</template>
+				<template v-for="(index, name) in $scopedSlots" v-slot:[name]="data">
+					<slot :name="name" v-bind="data"></slot>
+				</template>
+			</component>
 		</el-table>
 		<el-pagination 
 			class="pagination"
@@ -55,13 +35,15 @@
 </template>
 
 <script>
+import NewTableColumn from './new-table-column.vue'
+
 const defaultPagination = {background: true, layout: 'total, sizes, prev, pager, next, jumper'}
 export default {
 	name: 'newTable',
 	props: {
 		columns: {
 			type: Array,
-			default: () => []
+			default: () => ([])
 		},
 		pagination: {
 			type: Object,
@@ -94,10 +76,11 @@ export default {
 	},
 	data() {
 		return {
+			loading: false,
 			currentPage: 1,
 			pageSize: 10,
 			tempData: [],
-      loading: false
+			newTableColumn: NewTableColumn,
 		}
 	},
 	computed: {
@@ -130,9 +113,7 @@ export default {
 		}
 	},
 	mounted() {
-		console.log('---', this.$slots)
 		const tempStore = this.$refs?.table || {}
-		console.log('tempStore: ', this.$slots, this.$scopedSlots);
 		for(const key in tempStore) {
 			if(typeof tempStore[key] === 'function') {
 				this[key] = tempStore[key]
@@ -149,12 +130,12 @@ export default {
 			this.getTableData();
 		},
 		getTableData() {
-			const { offset, limit } = this.paging || {};
-      this.loading = true
-      setTimeout(() => {
-        this.tempData = this.data.filter((v, i) => i >= offset && i < (offset + limit))
-        this.loading = false
-      }, 1000)
+			const { offset, limit } = this.paging || {}
+		this.loading = true
+			setTimeout(() => {
+				this.tempData = this.data.filter((v, i) => i >= offset && i < (offset + limit))
+				this.loading = false
+			}, 1000);
 		},
 	}
 
@@ -168,5 +149,8 @@ export default {
 	::v-deep button.btn-prev {
 		margin-left:auto
 	}
+}
+.my-table ::v-deep .is-group tr:nth-child(odd) {
+    display: none;
 }
 </style>
