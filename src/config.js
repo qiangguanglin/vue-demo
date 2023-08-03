@@ -35,6 +35,10 @@ export const menuList = [
             {
                 value: '/components/hoc',
                 label: '高阶组件'
+            },
+            {
+                value: '/components/directives',
+                label: '自定义指令'
             }
         ]
     },

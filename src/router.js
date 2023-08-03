@@ -11,7 +11,8 @@ const routes = [
             { path: 'vModel', component: () => import('./pages/vModel.vue') },
             { path: 'inherit', component: () => import('./pages/inherit.vue') },
             { path: 'table', component: () => import('./pages/newTable.vue') },
-            { path: 'hoc', component: () => import('./pages/HOC.vue') }
+            { path: 'hoc', component: () => import('./pages/HOC.vue') },
+            { path: 'directives', component: () => import('./pages/directives.vue') }
         ]
     },
     { path: '/skill', component: () => import('./pages/skill.vue'),},
